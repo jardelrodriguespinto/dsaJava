@@ -13,9 +13,12 @@ public class LinkedList <E>{
 
     public void addFist(Node<E> nextNode){
 
+        if (head == null)
+            head = tail = nextNode;
+
         nextNode.setNext(head);
 
-        head = tail = nextNode;
+        head = nextNode;
 
         currentSize++;
     }
