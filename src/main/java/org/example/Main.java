@@ -1,25 +1,30 @@
 package org.example;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import node.LinkedList;
+import node.Node;
 
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(getMiddle("teslaa"));
-    }
+        Node<Integer> node1 = new Node<>(10);
+        Node<Integer> node2 = new Node<>(100);
+        Node<Integer> node3 = new Node<>(105);
+        Node<Integer> node4 = new Node<>(75);
 
-    static String getMiddle(String s) {
 
-        // Ja r del
+        LinkedList<Integer> list = new LinkedList<>();
 
-        //Ca mi la
+        list.addFist(node1);
 
-        int middle = s.length() / 2;
+        list.addFist(node3);
 
-        if (s.length() % 2 == 0)
-            return s.substring(middle - 1, middle + 1);
 
-        return s.substring(middle, middle + 1);
+        list.addLast(node2);
+        list.addLast(node4);
+
+
+        System.out.println(list);
+
+
     }
 }
