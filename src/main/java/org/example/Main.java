@@ -16,16 +16,24 @@ public class Main {
         LinkedList<Integer> list = new LinkedList<>();
 
         list.addFist(node1);
+//
+//        list.addFist(node3);
+//
+//
+//        list.addLast(node4);
+//        list.addFist(node5);
 
-        list.addFist(node3);
+        // p => 200 e u => 75 - antes de remover o ultimo elemento
 
 
-        list.addLast(node2);
-        list.addLast(node4);
-        list.addFist(node5);
+        // p => 105 e u => 75 - depois de remover o ultimo elemento
+
+        // testar com lista vazia, com apenas um elemento
+        // e testar com mais de um elemento
 
 
-        System.out.println(list);
+        ;
+        System.out.println(list.removeFirst());
 
 
     }

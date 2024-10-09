@@ -24,17 +24,50 @@ public class LinkedList <E>{
     }
 
     public void addLast(Node<E> nextNode){
-        if (head == null) {
+        if (head == null)
             head = tail = nextNode;
-            currentSize++;
-        }
+
 
         tail.setNext(nextNode);
 
         tail = nextNode;
 
         currentSize++;
+    }
 
+    /// the remove first method must return the first element, however, if the list
+    // is empty it will return null
+    // there are couple considerations related with data structures like boundaries
+    // if the list is empty, if there is only a single element
+    //if we're manipulating in the begging, end or middle of a certain data structure;
+
+    public <E> Node<E> removeFirst(){
+
+        //criar variavel temporaria no escopo global
+        Node<E> tmp = null;
+
+        //lista vazia
+        if (head == null)
+            return tmp;
+
+        //criar variavel temporaria
+        tmp = (Node<E>) head;
+
+        //se houver apenas um elemento na lista
+        if (currentSize == 1)
+        {
+            head = tail = null;
+
+            currentSize = 0;
+
+            return tmp;
+        }
+
+        head = head.getNext();
+
+        currentSize--;
+
+        return tmp;
     }
 
 
