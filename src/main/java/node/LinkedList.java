@@ -3,35 +3,45 @@ package node;
 public class LinkedList <E>{
     private Node<E> head;
     private Node<E> tail;
+    private Node<E> current;
+    private Node<E> previous;
     private int currentSize;
 
     public LinkedList(){
         head = null;
         tail = null;
+        current = null;
+        previous = null;
         currentSize = 0;
     }
 
     public void addFist(Node<E> nextNode){
 
         if (head == null)
-            head = tail = nextNode;
+            head = tail = current = nextNode;
+        else
+        {
+            nextNode.setNext(head);
 
-        nextNode.setNext(head);
+            head = nextNode;
 
-        head = nextNode;
-
+            current = head;
+        }
         currentSize++;
     }
 
     public void addLast(Node<E> nextNode){
         if (head == null)
-            head = tail = nextNode;
+            head = tail = current = nextNode;
+        else
+        {
+            tail.setNext(nextNode);
 
+            tail = nextNode;
 
-        tail.setNext(nextNode);
+            current = head;
 
-        tail = nextNode;
-
+        }
         currentSize++;
     }
 
@@ -56,7 +66,7 @@ public class LinkedList <E>{
         //se houver apenas um elemento na lista
         if (currentSize == 1)
         {
-            head = tail = null;
+            head = tail = previous = current = null;
 
             currentSize = 0;
 
@@ -65,27 +75,92 @@ public class LinkedList <E>{
 
         head = head.getNext();
 
+        current = head;
+
+        previous = null;
+
         currentSize--;
 
         return tmp;
     }
 
+    public Node<E> removeLast() {
+        if (head == null)
+            return null;
 
+        if (head == tail)
+            return removeFirst();
+
+        current = head;
+        previous = null;
+
+        while (current.getNext() != tail) {
+            previous = current;
+            current = current.getNext();
+        }
+
+        Node<E> tmp = tail;
+
+        tail = current;
+        tail.setNext(null);
+
+        currentSize--;
+
+        return tmp;
+    }
+
+    public boolean contains(E obj){
+
+        if (head == null)
+            return false;
+
+        if (head == tail && head.getData() == obj) {
+            return true;
+        }
+
+        Node<E> tmp = head;
+
+        while (tmp != null) {
+
+            if (tmp.getData() == obj)
+                return true;
+
+            tmp = tmp.getNext();
+        }
+
+
+
+        return false;
+    }
+
+
+    public Node<E> find(E obj){
+
+        return null;
+    }
+    public Node<E> remove(E obj){
+
+        return null;
+    }
+
+
+    public Node<E> getTail() {
+        return tail;
+    }
+
+    public Node<E> getCurrent() {
+        return current;
+    }
+
+    public Node<E> getPrevious() {
+        return previous;
+    }
 
     public Node<E> getHead() {
         return head;
     }
 
-    public void setHead(Node<E> head) {
-        this.head = head;
-    }
-
     public int getCurrentSize() {
         return currentSize;
     }
-
-    public void setCurrentSize(int currentSize) {
-        this.currentSize = currentSize;
-    }
-
 }

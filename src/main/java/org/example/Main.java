@@ -16,24 +16,13 @@ public class Main {
         LinkedList<Integer> list = new LinkedList<>();
 
         list.addFist(node1);
-//
+//        list.addFist(node2);
 //        list.addFist(node3);
-//
-//
-//        list.addLast(node4);
+//        list.addFist(node4);
 //        list.addFist(node5);
 
-        // p => 200 e u => 75 - antes de remover o ultimo elemento
 
-
-        // p => 105 e u => 75 - depois de remover o ultimo elemento
-
-        // testar com lista vazia, com apenas um elemento
-        // e testar com mais de um elemento
-
-
-        ;
-        System.out.println(list.removeFirst());
+        System.out.println(list.contains(10));
 
 
     }
