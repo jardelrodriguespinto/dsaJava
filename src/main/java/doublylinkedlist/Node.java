@@ -28,10 +28,10 @@ public class Node<T> {
     }
 
     public T getObj() {
-        return obj;
+        return data;
     }
 
     public void setObj(T obj) {
-        this.obj = obj;
+        this.data = obj;
     }
 }
