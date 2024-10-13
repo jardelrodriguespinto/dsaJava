@@ -5,7 +5,8 @@ public class DoublyLinkedList<T> {
     Node<T> tail;
 
     public DoublyLinkedList(){
-
+        head = null;
+        tail = null;
     }
 
     //addFirst

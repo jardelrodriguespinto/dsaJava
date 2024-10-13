@@ -3,12 +3,12 @@ package doublylinkedlist;
 public class Node<T> {
     private Node<T> previous;
     private Node<T> next;
-    private T obj;
+    private T data;
 
-    public Node(){
+    public Node(T obj){
         previous = null;
         next = null;
-        obj = null;
+        data = obj;
     }
 
     public Node<T> getPrevious() {
