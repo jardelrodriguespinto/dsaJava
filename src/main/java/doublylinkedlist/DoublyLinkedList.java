@@ -4,7 +4,6 @@ public class DoublyLinkedList<T>
 {
     Node<T> head;
     Node<T> tail;
-
     int currentSize;
 
     public DoublyLinkedList()
@@ -119,10 +118,30 @@ public class DoublyLinkedList<T>
     }
 
 
-    //find
-    public int find(T obj)
+    //indexOf
+    public int indexOf(T obj)
     {
-        return 0;
+        if (isEmpty())
+            return -1;
+
+        if (head == tail)
+            return 0;
+
+        Node<T> tmp = head;
+
+        int count = 0;
+
+        while (tmp != null)
+        {
+            if (obj.equals(tmp.getData()))
+                return count;
+
+            tmp = tmp.getNext();
+            count++;
+
+        }
+
+        return -1;
     }
 
     //remove

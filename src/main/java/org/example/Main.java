@@ -15,17 +15,12 @@ public class Main {
         DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
 
         list.addFirst(node);
-//        list.addFirst(node2);
-//        list.addFirst(node3);
-//        list.addFirst(node4);
-//        list.addFirst(node5); // tem que cair fora
+        list.addFirst(node2);
+        list.addFirst(node3);
+        list.addFirst(node4);
+        list.addFirst(node5); // tem que cair fora
 
-        list.removeLast();
-
-
-        list.addLast(node2);
-
-        System.out.println(list);
+        System.out.println(list.indexOf(120));
 
 
     }
