@@ -1,37 +1,45 @@
 package doublylinkedlist;
 
-public class Node<T> {
+public class Node<T>
+{
     private Node<T> previous;
     private Node<T> next;
     private T data;
 
-    public Node(T obj){
+    public Node(T obj)
+    {
         previous = null;
         next = null;
         data = obj;
     }
 
-    public Node<T> getPrevious() {
+    public Node<T> getPrevious()
+    {
         return previous;
     }
 
-    public void setPrevious(Node<T> previous) {
+    public void setPrevious(Node<T> previous)
+    {
         this.previous = previous;
     }
 
-    public Node<T> getNext() {
+    public Node<T> getNext()
+    {
         return next;
     }
 
-    public void setNext(Node<T> next) {
+    public void setNext(Node<T> next)
+    {
         this.next = next;
     }
 
-    public T getObj() {
+    public T getData()
+    {
         return data;
     }
 
-    public void setObj(T obj) {
+    public void getData(T obj)
+    {
         this.data = obj;
     }
 }
