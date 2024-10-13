@@ -226,6 +226,34 @@ public class LinkedList <E> implements Iterable <E>{
 
     @Override
     public Iterator<E> iterator() {
-        return null;
+        return new IteratorHelper();
+    }
+
+    class IteratorHelper implements  Iterator<E>{
+
+        Node<E> index;
+
+        public IteratorHelper() {
+            index = head;
+        }
+
+
+        @Override
+        public boolean hasNext() {
+            return index != null;
+        }
+
+        @Override
+        public E next() {
+
+            if (!hasNext())
+                throw new UnsupportedOperationException();
+
+            E val = index.getData();
+
+            index = index.getNext();
+
+            return val;
+        }
     }
 }
