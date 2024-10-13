@@ -1,6 +1,8 @@
 package node;
 
-public class LinkedList <E>{
+import java.util.Iterator;
+
+public class LinkedList <E> implements Iterable <E>{
     private Node<E> head;
     private Node<E> tail;
     private Node<E> current;
@@ -17,7 +19,7 @@ public class LinkedList <E>{
 
     public void addFist(Node<E> nextNode){
 
-        if (head == null)
+        if (isEmpty())
             head = tail = current = nextNode;
         else
         {
@@ -31,17 +33,20 @@ public class LinkedList <E>{
     }
 
     public void addLast(Node<E> nextNode){
-        if (head == null)
+        if (isEmpty())
             head = tail = current = nextNode;
         else
         {
+            if (currentSize > 1 )
+                previous = tail;
+
             tail.setNext(nextNode);
 
             tail = nextNode;
 
             current = head;
-
         }
+
         currentSize++;
     }
 
@@ -53,17 +58,13 @@ public class LinkedList <E>{
 
     public <E> Node<E> removeFirst(){
 
-        //criar variavel temporaria no escopo global
         Node<E> tmp = null;
 
-        //lista vazia
-        if (head == null)
+        if (isEmpty())
             return tmp;
 
-        //criar variavel temporaria
         tmp = (Node<E>) head;
 
-        //se houver apenas um elemento na lista
         if (currentSize == 1)
         {
             head = tail = previous = current = null;
@@ -85,7 +86,7 @@ public class LinkedList <E>{
     }
 
     public Node<E> removeLast() {
-        if (head == null)
+        if (isEmpty())
             return null;
 
         if (head == tail)
@@ -111,38 +112,97 @@ public class LinkedList <E>{
 
     public boolean contains(E obj){
 
-        if (head == null)
+        if (isEmpty())
             return false;
 
         if (head == tail && head.getData() == obj) {
             return true;
         }
 
-        Node<E> tmp = head;
+        if (obj == null)
+            return false;
+
+        var tmp = head;
 
         while (tmp != null) {
 
-            if (tmp.getData() == obj)
-                return true;
+            if (obj instanceof E)
+                return (obj).equals(tmp.getData());
 
             tmp = tmp.getNext();
         }
-
-
 
         return false;
     }
 
 
-    public Node<E> find(E obj){
+    public int find(E obj){
+        if (isEmpty())
+            return -1;
 
-        return null;
+        if (head == tail)
+            return 1;
+
+        int index = 1;
+        Node<E> tmp = head;
+
+        while (index <= currentSize) {
+            if (obj == tmp.getData())
+                return index;
+
+            tmp = tmp.getNext();
+            index++;
+        }
+
+        return -1;
     }
-    public Node<E> remove(E obj){
 
-        return null;
+    public Node<E> remove(E obj) {
+
+        if (isEmpty())
+            return null;
+
+        if (head == tail) {
+            var tmp = head;
+            head = tail = current = previous = null;
+            currentSize--;
+            return tmp;
+        }
+
+        var tmp = current;
+        Node<E> temp = null;
+
+        //tenho que percorrer a lista
+        while (tmp.getNext() != null) {
+
+            //verificar se o valor é igual ao inputado
+            //se for se for igual
+
+
+            if (obj.equals(tmp.getData())) {
+                //eu vou armazenar este no
+                // em uma variavel temporaria
+
+                temp = current.getNext();
+
+                //vou apontar o proximo no para o proximo do no que irei remover
+
+                current = previous;
+                current.setNext(temp);
+                break;
+            }
+
+            tmp = tmp.getNext();
+        }
+
+        currentSize--;
+
+        return temp;
     }
 
+    public boolean isEmpty() {
+        return head == null;
+    }
 
     public Node<E> getTail() {
         return tail;
@@ -160,7 +220,12 @@ public class LinkedList <E>{
         return head;
     }
 
-    public int getCurrentSize() {
+    public int size() {
         return currentSize;
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return null;
     }
 }
