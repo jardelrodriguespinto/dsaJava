@@ -19,6 +19,16 @@ public class DoublyLinkedList<T>
         if (isEmpty())
             head = tail = newNode;
 
+        if (currentSize == 1)
+        {
+            tail.setPrevious(head);
+            tail.setNext(null);
+            tail = head;
+            head = newNode;
+            currentSize++;
+            return;
+        }
+
         head.setPrevious(newNode);
 
         newNode.setNext(head);
@@ -60,6 +70,17 @@ public class DoublyLinkedList<T>
         if (isEmpty())
         {
             head = tail = newNode;
+        }
+
+        if (currentSize == 1)
+        {
+            tail = newNode;
+            tail.setPrevious(head);
+            tail.setNext(null);
+            head.setNext(tail);
+            head.setPrevious(null);
+            currentSize++;
+            return;
         }
 
         newNode.setPrevious(tail);
@@ -108,7 +129,7 @@ public class DoublyLinkedList<T>
 
         while (tmp != null)
         {
-            if (obj.equals(head.getData()))
+            if (obj.equals(tmp.getData()))
                 return true;
 
             tmp = tmp.getNext();
@@ -141,7 +162,7 @@ public class DoublyLinkedList<T>
 
         }
 
-        return -1;
+          return -1;
     }
 
     //remove
@@ -150,6 +171,41 @@ public class DoublyLinkedList<T>
     */
     public Node<T> remove(T obj)
     {
+        Node<T> tmp = head;
+
+        while (tmp != null)
+        {
+            if (obj.equals(tmp.getData()))
+            {
+                if (tmp == head)
+                {
+                    head = tmp.getNext();
+
+                    if (head != null)
+                        head.setPrevious(null);
+                    else
+                        tail = null;
+                }
+                // Se o nó a ser removido é o tail
+                else if (tmp == tail)
+                {
+                    tail = tmp.getPrevious();
+
+                    if (tail != null)
+                        tail.setNext(null);
+                    else
+                        head = null;
+                }
+
+                currentSize--;
+
+                return tmp;
+            }
+
+            tmp = tmp.getNext();
+        }
+
+
         return null;
     }
 

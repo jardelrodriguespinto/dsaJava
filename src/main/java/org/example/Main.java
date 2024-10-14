@@ -14,13 +14,15 @@ public class Main {
 
         DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
 
-        list.addFirst(node);
-        list.addFirst(node2);
-        list.addFirst(node3);
-        list.addFirst(node4);
-        list.addFirst(node5); // tem que cair fora
+        list.addLast(node);
+        list.addLast(node2);
+        list.addLast(node3);
+        list.addLast(node4);
+        list.addLast(node5); // tem que cair fora
 
-        System.out.println(list.indexOf(120));
+        list.remove(10);
+
+        System.out.println(list);
 
 
     }
