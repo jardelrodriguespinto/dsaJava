@@ -1,45 +1,27 @@
 package queue;
 
-public class Node<T>
-{
-    private Node<T> previous;
-    private Node<T> next;
-    private T data;
+public class Node<E> {
+    private E data;
+    private Node<E> next;
 
-    public Node(T obj)
-    {
-        previous = null;
-        next = null;
+    public Node(E obj) {
         data = obj;
+        this.next = null;
     }
 
-    public Node<T> getPrevious()
-    {
-        return previous;
-    }
-
-    public void setPrevious(Node<T> previous)
-    {
-        this.previous = previous;
-    }
-
-    public Node<T> getNext()
-    {
-        return next;
-    }
-
-    public void setNext(Node<T> next)
-    {
-        this.next = next;
-    }
-
-    public T getData()
-    {
+    public E getData() {
         return data;
     }
 
-    public void getData(T obj)
-    {
-        this.data = obj;
+    public Node<E> getNext() {
+        return next;
+    }
+
+    public void setData(E data) {
+        this.data = data;
+    }
+
+    public void setNext(Node<E> next) {
+        this.next = next;
     }
 }

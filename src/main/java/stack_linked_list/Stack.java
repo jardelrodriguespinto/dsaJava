@@ -1,5 +1,7 @@
 package stack_linked_list;
 
+import java.util.Queue;
+
 public class Stack <T>
 {
 
