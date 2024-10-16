@@ -33,10 +33,12 @@ public class Queue<T>
         currentSize++;
     }
 
-    public void dequeue()
+    public T dequeue()
     {
         if (! isEmpty())
         {
+            T data = firstNode.getData();
+
             firstNode = firstNode.getNext();
 
             if (firstNode == null)
@@ -45,7 +47,15 @@ public class Queue<T>
             }
 
             currentSize--;
+            return data;
         }
+
+        return null;
+    }
+
+    public T peek()
+    {
+        return firstNode.getData();
     }
 
 
@@ -57,5 +67,21 @@ public class Queue<T>
     public boolean isEmpty()
     {
         return currentSize == 0;
+    }
+
+    public Node<T> getFirstNode() {
+        return firstNode;
+    }
+
+    public void setFirstNode(Node<T> firstNode) {
+        this.firstNode = firstNode;
+    }
+
+    public Node<T> getLastNode() {
+        return lastNode;
+    }
+
+    public void setLastNode(Node<T> lastNode) {
+        this.lastNode = lastNode;
     }
 }

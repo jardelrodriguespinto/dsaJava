@@ -31,7 +31,7 @@ public class Stack <T>
 
     //peek - return the object at the top without necessaraly remove it
 
-    public Node<T> pop()
+    public T pop()
     {
         if(isEmpty())
             return  null;
@@ -40,7 +40,7 @@ public class Stack <T>
 
         head = head.getNext();
 
-        return tmp;
+        return tmp.getData();
     }
 
     public T peek()
@@ -55,4 +55,9 @@ public class Stack <T>
     {
         return currentSize == 0;
     }
+
+    public Node<T> getHead() {
+        return head;
+    }
+
 }

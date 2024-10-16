@@ -1,20 +1,13 @@
 package org.example;
 
-import queue.Queue;
-import stack_array.Stack;
+import searchalgorithms.SearchAlgorithms;
 
 public class Main {
     public static void main(String[] args) {
 
-        Queue<Integer> fila = new Queue<>();
+        int[] nums = new int[]{1,2,3,4,5};
 
-        fila.enqueue(10);
-        fila.enqueue(20);
-        fila.dequeue();
-        fila.enqueue(30);
-        fila.enqueue(40);
-
-        System.out.println(fila);
+        System.out.println(SearchAlgorithms.binarySearch(nums, 10));
 
     }
 }
