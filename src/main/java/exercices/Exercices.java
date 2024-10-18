@@ -16,16 +16,10 @@ public class Exercices<T>
         for(char c : word.toCharArray())
             stack.push(String.valueOf(c));
 
-        var tmp = stack.getHead();
+        while (!stack.isEmpty())
+            newStr.append(stack.pop());
 
-        while (tmp != null)
-        {
-            newStr.append(tmp.getData());
-
-            tmp = tmp.getNext();
-        }
-
-        return word.contentEquals(newStr);
+         return word.contentEquals(newStr);
     }
 
     public String reverseString(String word)
@@ -37,14 +31,8 @@ public class Exercices<T>
         for(char c : word.toCharArray())
             stack.push(String.valueOf(c));
 
-        var tmp = stack.getHead();
-
-        while (tmp != null)
-        {
-            newStr.append(tmp.getData());
-
-            tmp = tmp.getNext();
-        }
+        while (!stack.isEmpty())
+            newStr.append(stack.pop());
 
         return newStr.toString();
     }

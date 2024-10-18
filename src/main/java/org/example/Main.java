@@ -1,13 +1,17 @@
 package org.example;
 
-import searchalgorithms.SearchAlgorithms;
+import binarysearchtrees.BinarySearchTree;
+import binarysearchtrees.Node;
 
 public class Main {
     public static void main(String[] args) {
 
-        int[] nums = new int[]{1,2,3,4,5};
+        BinarySearchTree<Integer> binarySearchTree = new BinarySearchTree<>();
+        binarySearchTree.insert(1);
+        binarySearchTree.insert(2);
+        binarySearchTree.insert(3);
 
-        System.out.println(SearchAlgorithms.binarySearch(nums, 10));
+        System.out.println(binarySearchTree);
 
     }
 }
