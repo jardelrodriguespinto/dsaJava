@@ -63,4 +63,12 @@ public class Recursion
 
         return Math.max(arr[num], biggest(arr, num + 1));
     }
+
+    public static int imprimirSomaIntevaloEntreAeB(int a, int b)
+    {
+        if (a > b)
+            return 0;
+
+        return  a + imprimirSomaIntevaloEntreAeB(a + 1 , b);
+    }
 }
