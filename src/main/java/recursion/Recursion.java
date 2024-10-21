@@ -112,4 +112,18 @@ public class Recursion
         return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
     }
 
+    public static boolean parametrosBalanceados(String str, int n, int count)
+    {
+        if (str.charAt(n) == '(')
+            count++;
+        else if (str.charAt(n) == ')')
+            count--;
+
+        if (n == 0)
+            return count == 0;
+
+        return parametrosBalanceados(str, n - 1, count);
+    }
+
+
 }
