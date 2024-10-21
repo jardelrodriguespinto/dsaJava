@@ -71,4 +71,45 @@ public class Recursion
 
         return  a + imprimirSomaIntevaloEntreAeB(a + 1 , b);
     }
+
+    public static int somaNumerosImparesAteN (int n)
+    {
+        if (n == 0)
+            return 0;
+
+        if (n % 2 != 0)
+            return n + somaNumerosImparesAteN(n - 1);
+
+
+        return somaNumerosImparesAteN(n - 1);
+    }
+
+    public static String removeEspacoString(String str, int n)
+    {
+        if (n < 0)
+            return "";
+
+        String word = "";
+
+        if (str.charAt(n) != ' ')
+            word += String.valueOf(str.charAt(n));
+
+        return removeEspacoString(str, n - 1) + word;
+    }
+
+    public static int contarVogais(String str, int n)
+    {
+        if (n < 0)
+            return 0;
+
+        int count = isVogal(str.charAt(n)) ? 1 : 0;
+
+        return count + contarVogais(str, n - 1);
+    }
+
+    private static boolean isVogal(char c)
+    {
+        return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+    }
+
 }
