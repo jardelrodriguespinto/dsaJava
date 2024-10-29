@@ -1,6 +1,4 @@
-package org.example;
-
-import designpatters.enums.Regioes;
+package designpatters;
 
 public class Main {
     public static void main(String[] args) {
